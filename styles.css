@@ -47,22 +47,54 @@
     display: flex;
   }
   
-  .nav-links li {
-    margin-left: 20px;
-  }
-  
-  .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s;
-  }
-  
-  .navbar-container:hover {
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    background-color: #444; /* Optionally change background on hover */
-  }
+ /* Navbar links container */
+.nav-links {
+  list-style-type: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px;
+  position: relative; /* For positioning the box around each nav item */
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+  padding: 10px 15px; /* Add some space around the text */
+  display: block; /* Make the link fill its container */
+}
+
+/* Hover effect on nav elements */
+.nav-links a:hover {
+  color: #f39c12;
+}
+
+/* Box around each nav item - Initially transparent */
+.nav-links li::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent; /* Initially transparent */
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out; /* Smooth transition for the box */
+}
+
+/* Box appears on hover */
+.nav-links li:hover::before {
+  border-color: #f39c12; /* Color of the border when hovering */
+}
+
+/* Optional: Give some transition time for a smoother effect */
+.nav-links li:hover a {
+  color: #f39c12; /* Change text color on hover */
+}
+
   
   /* Welcome image */
   .hero {
